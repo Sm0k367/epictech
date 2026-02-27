@@ -9,7 +9,7 @@ const router = useRouter();
 
 useEffect(() => {
 setUnlocked();
-// Small delay for UX/feedback, then send home
+// Brief UX message, then send home to main experience
 const t = setTimeout(() => {
 router.push("/");
 }, 2200);
