@@ -8,13 +8,11 @@ import { isUnlocked } from '../lib/unlock';
 export default function Home() {
 const [unlocked, setUnlocked] = useState(false);
 
-// Check unlock state on page load
 useEffect(() => {
 setUnlocked(isUnlocked());
 }, []);
 
 function handleUnlock() {
-// Hard-coded Stripe Checkout link from user
 window.location.href = "https://buy.stripe.com/3cI8wQgj74LI592cDM0Fi05";
 }
 
