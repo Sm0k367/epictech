@@ -2,6 +2,12 @@
 
 import { useState } from 'react';
 
+// --- Next.js quick fix for browser Buffer (for HuggingFace image card) ---
+import { Buffer } from "buffer";
+if (typeof window !== "undefined") {
+window.Buffer = Buffer;
+}
+
 export default function DemoMediaCards({ locked }) {
 return (
 <div style={{
@@ -27,7 +33,7 @@ async function handleGenerate() {
 setLoading(true);
 setOutput('');
 try {
-// HuggingFace free inference endpoint: bigscience/bloomz-560m (text generation)
+// HuggingFace free inference endpoint: bigscience/bloomz-560m
 const data = await fetch('https://api-inference.huggingface.co/models/bigscience/bloomz-560m', {
 method: "POST",
 headers: { "Content-Type": "application/json" },
